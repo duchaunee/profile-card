@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <link rel="icon" href="https://scontent.fhan5-2.fna.fbcdn.net/v/t39.30808-6/249261883_3143393982651534_6533103562518237249_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=174925&_nc_ohc=yFqfk2yh4W4AX9sMA9i&_nc_ht=scontent.fhan5-2.fna&oh=00_AT9ReegYG25OsViYtbgJWhkXZ0b4gMDZWO3h1L2FPNDmOQ&oe=61FB1FBA" type="image/x-icon" />
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="card">
+        <div class="card__img">
+            <img src="profile-avt.jpg" alt="">
+        </div>
+
+        <div class="card__contact">
+            <h2 class="card__name show">duchaudeyy</h2>
+            <h2 class="card__name ">boi si tinh thich milo</h2>
+            <p>young boi si tinh</p>
+            <div class="card__social">
+                <a href="https://www.facebook.com/duchaudeyy/" target="_blank"><i class='bx bxl-facebook' ></i></a>
+                <a href="https://www.youtube.com/channel/UCnDPOl5n7mYN96nj1ncu2uQ" target="_blank"><i class='bx bxl-youtube'></i></a>
+                <a href="https://www.tiktok.com/@duchaudeyy" target="_blank"><i class='bx bxl-tiktok' ></i></a>
+                <a href="https://github.com/duchaunee" target="_blank"><i class='bx bxl-github' ></i></a>
+            </div>
+        </div>
+
+        <button>Contact me</button>
+    </div>
+
+        <!-- <div class="card__tabs-mobile">
+            <div class="card__tab-mobile-item">
+                <i class='bx bxs-info-circle'></i>
+                Info
+            </div>
+
+            <div class="card__tab-mobile-item">
+                <i class='bx bxs-heart'></i>
+                Favorites
+            </div>
+
+            <div class="card__tab-mobile-item">
+                <i class='bx bxs-phone'></i>
+                Phone
+            </div>
+            
+            <div class="card__tab-mobile-item">
+                <i class='bx bxl-gmail' ></i>
+                Mail
+            </div>
+        </div> -->
+
+
+    <div class="tabs-profile">
+        <div class="tabs">
+            <div class="tab-item active">
+                <i class='bx bxs-info-circle'></i>
+                <!-- <br> -->
+                Info
+            </div>
+
+            <div class="tab-item ">
+                <i class='bx bxs-heart'></i>
+                Favorites
+            </div>
+
+            <div class="tab-item ">
+                <i class='bx bxs-phone'></i>
+                Phone
+            </div>
+
+            <div class="tab-item">
+                <i class='bx bxl-gmail' ></i>
+                Mail
+            </div>
+
+            <div class="line"></div>
+        </div>  
+
+        <div class="tabs-content">
+            <div class="tab-pane tab-pane-info active">
+                <h2>INFO</h2>
+                <p>Hello, I'm Duc Hau, born on April 25, 2002, currently living in Bac Ninh and I love you.</p>
+            </div>
+            <div class="tab-pane tab-pane-favorites ">
+                <h2>FAVORITES</h2>
+                <p>My favorites are listening to music, reading manga or watching anime in my free time, sometimes I also play soccer with my friends.</p>
+            </div>
+            <div class="tab-pane tab-pane-phone ">
+                <h2>PHONE</h2>
+                <p>+849123163**</p>
+            </div>
+            <div class="tab-pane tab-pane-mail">
+                <h2>MAIL</h2>
+                <p>duchaunee@gmail.com</p>
+            </div> 
+            
+        </div>
+
+    </div>
+
+    <script>
+        // chuyển đổi tab-profile
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+
+        const tabs = $$('.tab-item')
+        const panes = $$('.tab-pane') 
+
+        const tabActive = $('.tab-item.active')
+        const line = $('.tabs .line')
+        line.style.left = tabActive.offsetLeft + 'px'
+        line.style.width = tabActive.offsetWidth + 'px'
+        
+
+        tabs.forEach((tab, index) => {
+
+            const pane = panes[index]
+
+            tab.onclick = function() {
+                
+                $('.tab-pane.active').classList.remove('active')
+                $('.tab-item.active').classList.remove('active')
+
+                pane.classList.add('active')
+                this.classList.add('active')
+
+                line.style.left = this.offsetLeft + 'px'
+                line.style.width = this.offsetWidth + 'px'  
+         
+            }
+        })
+
+
+        //chuyển đổi card-name 
+        const names = $$('.card__name')
+
+        names.forEach((name, index) => {
+            name.onclick = function() {
+                this.classList.remove('show')
+                names[1-index].classList.add('show')
+            }
+        })
+
+
+    </script>
+    
+</body>
+</html>
